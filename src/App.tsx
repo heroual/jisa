@@ -63,7 +63,7 @@ function AppContent() {
             title="Market Research"
             description="Get competitor insights, market trends, and positioning strategies"
             icon={TrendingUp}
-            color="from-green-500 to-emerald-500"
+            color="from-[#d6c2a3] to-[#c4a87f]"
           />
         );
       case 'financial-planning':
@@ -72,7 +72,7 @@ function AppContent() {
             title="Financial Planning"
             description="Create pricing strategies, revenue forecasts, and profit optimization plans"
             icon={DollarSign}
-            color="from-blue-500 to-cyan-500"
+            color="from-[#d6c2a3] to-[#c4a87f]"
           />
         );
       case 'marketing-strategy':
@@ -81,7 +81,7 @@ function AppContent() {
             title="Marketing Strategy"
             description="Design digital campaigns, optimize funnels, and plan retention tactics"
             icon={Target}
-            color="from-pink-500 to-rose-500"
+            color="from-[#d6c2a3] to-[#c4a87f]"
           />
         );
       case 'business-plan':
@@ -90,7 +90,7 @@ function AppContent() {
             title="Business Plan Generator"
             description="Create comprehensive business plans and pitch decks for investors"
             icon={FileText}
-            color="from-violet-500 to-purple-500"
+            color="from-[#d6c2a3] to-[#c4a87f]"
           />
         );
       case 'automation':
@@ -99,7 +99,7 @@ function AppContent() {
             title="AI Automation Suggestions"
             description="Identify repetitive tasks and get AI tool recommendations to save time"
             icon={Bot}
-            color="from-indigo-500 to-blue-500"
+            color="from-[#d6c2a3] to-[#c4a87f]"
           />
         );
       case 'reports':
@@ -108,7 +108,7 @@ function AppContent() {
             title="Reports & Analytics"
             description="Generate detailed reports and export insights in multiple formats"
             icon={BarChart3}
-            color="from-teal-500 to-cyan-500"
+            color="from-[#d6c2a3] to-[#c4a87f]"
           />
         );
       case 'chat':
