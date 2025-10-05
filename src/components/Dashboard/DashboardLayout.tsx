@@ -52,18 +52,18 @@ export function DashboardLayout({ children, currentView, onViewChange }: Dashboa
   };
 
   return (
-    <div className="min-h-screen bg-slate-50">
-      <div className="fixed top-0 left-0 right-0 bg-white border-b border-slate-200 z-30">
+    <div className="min-h-screen bg-[#f5f0e6]">
+      <div className="fixed top-0 left-0 right-0 bg-white border-b border-[#d6c2a3]/20 z-30">
         <div className="flex items-center justify-between px-4 h-16">
           <div className="flex items-center gap-3">
             <button
               onClick={() => setSidebarOpen(!sidebarOpen)}
-              className="lg:hidden p-2 hover:bg-slate-100 rounded-lg transition-colors"
+              className="lg:hidden p-2 hover:bg-[#f5f0e6] rounded-lg transition-colors"
             >
               {sidebarOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
             <div className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-cyan-500 rounded-lg flex items-center justify-center">
+              <div className="w-8 h-8 bg-gradient-to-br from-[#d6c2a3] to-[#c4a87f] rounded-lg flex items-center justify-center">
                 <Briefcase className="w-5 h-5 text-white" />
               </div>
               <h1 className="text-lg font-bold text-slate-900 hidden sm:block">
@@ -76,7 +76,7 @@ export function DashboardLayout({ children, currentView, onViewChange }: Dashboa
             <div className="hidden sm:block text-sm text-slate-600">{user?.email}</div>
             <button
               onClick={handleSignOut}
-              className="flex items-center gap-2 px-4 py-2 text-sm text-slate-700 hover:bg-slate-100 rounded-lg transition-colors"
+              className="flex items-center gap-2 px-4 py-2 text-sm text-slate-700 hover:bg-[#f5f0e6] rounded-lg transition-colors"
             >
               <LogOut className="w-4 h-4" />
               <span className="hidden sm:inline">Sign Out</span>
@@ -93,7 +93,7 @@ export function DashboardLayout({ children, currentView, onViewChange }: Dashboa
       />
 
       <aside
-        className={`fixed left-0 top-16 bottom-0 w-64 bg-white border-r border-slate-200 z-20 transform transition-transform ${
+        className={`fixed left-0 top-16 bottom-0 w-64 bg-white border-r border-[#d6c2a3]/20 z-20 transform transition-transform ${
           sidebarOpen ? 'translate-x-0' : '-translate-x-full'
         } lg:translate-x-0`}
       >
@@ -110,8 +110,8 @@ export function DashboardLayout({ children, currentView, onViewChange }: Dashboa
                 }}
                 className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-all ${
                   isActive
-                    ? 'bg-gradient-to-r from-blue-600 to-cyan-500 text-white shadow-md'
-                    : 'text-slate-700 hover:bg-slate-100'
+                    ? 'bg-gradient-to-r from-[#d6c2a3] to-[#c4a87f] text-white shadow-md'
+                    : 'text-slate-700 hover:bg-[#f5f0e6]'
                 }`}
               >
                 <Icon className="w-5 h-5" />

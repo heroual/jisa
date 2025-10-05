@@ -87,7 +87,7 @@ export function Overview({ onNavigate }: OverviewProps) {
       title: 'Business Idea Validation',
       description: 'Evaluate your business idea with SWOT analysis and success scoring',
       icon: Lightbulb,
-      color: 'from-amber-500 to-orange-500',
+      color: 'from-[#d6c2a3] to-[#c4a87f]',
       count: stats.validations,
     },
     {
@@ -95,7 +95,7 @@ export function Overview({ onNavigate }: OverviewProps) {
       title: 'Keyword Research',
       description: 'Discover trending keywords with search volume and competition',
       icon: Search,
-      color: 'from-green-500 to-emerald-500',
+      color: 'from-[#d6c2a3] to-[#c4a87f]',
       count: 0,
     },
     {
@@ -103,7 +103,7 @@ export function Overview({ onNavigate }: OverviewProps) {
       title: 'Competitor Analysis',
       description: 'Benchmark competitors and analyze their strategies',
       icon: Users,
-      color: 'from-blue-500 to-cyan-500',
+      color: 'from-[#d6c2a3] to-[#c4a87f]',
       count: 0,
     },
     {
@@ -111,7 +111,7 @@ export function Overview({ onNavigate }: OverviewProps) {
       title: 'Lead Generation',
       description: 'Collect and manage potential leads with export options',
       icon: UserPlus,
-      color: 'from-pink-500 to-rose-500',
+      color: 'from-[#d6c2a3] to-[#c4a87f]',
       count: 0,
     },
     {
@@ -119,7 +119,7 @@ export function Overview({ onNavigate }: OverviewProps) {
       title: 'Website & Social Analysis',
       description: 'Analyze SEO, performance, and social media engagement',
       icon: Globe,
-      color: 'from-purple-500 to-indigo-500',
+      color: 'from-[#d6c2a3] to-[#c4a87f]',
       count: 0,
     },
     {
@@ -127,7 +127,7 @@ export function Overview({ onNavigate }: OverviewProps) {
       title: 'Financial Planning',
       description: 'Pricing strategies, forecasts, and profit optimization',
       icon: DollarSign,
-      color: 'from-blue-600 to-cyan-600',
+      color: 'from-[#d6c2a3] to-[#c4a87f]',
       count: stats.financialPlans,
     },
     {
@@ -135,7 +135,7 @@ export function Overview({ onNavigate }: OverviewProps) {
       title: 'Marketing Strategy',
       description: 'Digital campaigns, funnels, and retention tactics',
       icon: Target,
-      color: 'from-pink-600 to-rose-600',
+      color: 'from-[#d6c2a3] to-[#c4a87f]',
       count: stats.marketingStrategies,
     },
   ];
@@ -158,17 +158,17 @@ export function Overview({ onNavigate }: OverviewProps) {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        <div className="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+        <div className="bg-white rounded-xl p-6 border border-[#d6c2a3]/20 shadow-sm">
           <div className="text-slate-600 text-sm mb-1">Total Projects</div>
           <div className="text-3xl font-bold text-slate-900">{stats.projects}</div>
         </div>
-        <div className="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+        <div className="bg-white rounded-xl p-6 border border-[#d6c2a3]/20 shadow-sm">
           <div className="text-slate-600 text-sm mb-1">Active Analyses</div>
           <div className="text-3xl font-bold text-slate-900">
             {stats.validations + stats.marketResearch + stats.financialPlans}
           </div>
         </div>
-        <div className="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+        <div className="bg-white rounded-xl p-6 border border-[#d6c2a3]/20 shadow-sm">
           <div className="text-slate-600 text-sm mb-1">Generated Reports</div>
           <div className="text-3xl font-bold text-slate-900">{stats.reports}</div>
         </div>
@@ -183,20 +183,20 @@ export function Overview({ onNavigate }: OverviewProps) {
               <button
                 key={feature.id}
                 onClick={() => onNavigate(feature.id)}
-                className="bg-white rounded-xl p-6 border border-slate-200 hover:border-slate-300 hover:shadow-lg transition-all text-left group"
+                className="bg-white rounded-xl p-6 border border-[#d6c2a3]/20 hover:border-[#d6c2a3]/40 hover:shadow-lg transition-all text-left group"
               >
                 <div
                   className={`w-12 h-12 rounded-lg bg-gradient-to-br ${feature.color} flex items-center justify-center mb-4`}
                 >
                   <Icon className="w-6 h-6 text-white" />
                 </div>
-                <h4 className="font-semibold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">
+                <h4 className="font-semibold text-slate-900 mb-2 group-hover:text-[#c4a87f] transition-colors">
                   {feature.title}
                 </h4>
                 <p className="text-sm text-slate-600 mb-4">{feature.description}</p>
                 <div className="flex items-center justify-between">
                   <span className="text-sm text-slate-500">{feature.count} created</span>
-                  <ArrowRight className="w-4 h-4 text-blue-600 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="w-4 h-4 text-[#c4a87f] group-hover:translate-x-1 transition-transform" />
                 </div>
               </button>
             );
@@ -204,7 +204,7 @@ export function Overview({ onNavigate }: OverviewProps) {
         </div>
       </div>
 
-      <div className="bg-gradient-to-r from-blue-600 to-cyan-500 rounded-xl p-8 text-white">
+      <div className="bg-gradient-to-r from-[#d6c2a3] to-[#c4a87f] rounded-xl p-8 text-white">
         <h3 className="text-2xl font-bold mb-2">Need Quick Advice?</h3>
         <p className="mb-4 opacity-90">
           Ask me anything about your business. I'm here to help with pricing, marketing,
@@ -212,7 +212,7 @@ export function Overview({ onNavigate }: OverviewProps) {
         </p>
         <button
           onClick={() => onNavigate('chat')}
-          className="bg-white text-blue-600 px-6 py-3 rounded-lg font-medium hover:bg-blue-50 transition-colors inline-flex items-center gap-2"
+          className="bg-white text-[#c4a87f] px-6 py-3 rounded-lg font-medium hover:bg-[#f5f0e6] transition-colors inline-flex items-center gap-2"
         >
           Start Q&A Chat
           <ArrowRight className="w-4 h-4" />

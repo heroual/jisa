@@ -37,10 +37,10 @@ export function AuthForm() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 to-slate-100 p-4">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#f5f0e6] to-white p-4">
       <div className="max-w-md w-full bg-white rounded-2xl shadow-xl p-8">
         <div className="flex justify-center mb-6">
-          <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-cyan-500 rounded-xl flex items-center justify-center">
+          <div className="w-16 h-16 bg-gradient-to-br from-[#d6c2a3] to-[#c4a87f] rounded-xl flex items-center justify-center">
             <Briefcase className="w-8 h-8 text-white" />
           </div>
         </div>
@@ -63,7 +63,7 @@ export function AuthForm() {
                 type="text"
                 value={fullName}
                 onChange={(e) => setFullName(e.target.value)}
-                className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-[#c4a87f] focus:border-transparent transition-all"
                 placeholder="John Doe"
                 required
               />
@@ -79,7 +79,7 @@ export function AuthForm() {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+              className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-[#c4a87f] focus:border-transparent transition-all"
               placeholder="your@email.com"
               required
             />
@@ -94,7 +94,7 @@ export function AuthForm() {
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+              className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-[#c4a87f] focus:border-transparent transition-all"
               placeholder="••••••••"
               required
               minLength={6}
@@ -110,7 +110,7 @@ export function AuthForm() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-gradient-to-r from-blue-600 to-cyan-500 text-white py-3 rounded-lg font-medium hover:from-blue-700 hover:to-cyan-600 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+            className="w-full bg-gradient-to-r from-[#d6c2a3] to-[#c4a87f] text-white py-3 rounded-lg font-medium hover:from-[#c4a87f] hover:to-[#d6c2a3] transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
           >
             {loading ? (
               <span>Loading...</span>
@@ -139,7 +139,7 @@ export function AuthForm() {
               setIsSignUp(!isSignUp);
               setError('');
             }}
-            className="text-blue-600 hover:text-blue-700 text-sm font-medium"
+            className="text-[#c4a87f] hover:text-[#d6c2a3] text-sm font-medium"
           >
             {isSignUp
               ? 'Already have an account? Sign in'
