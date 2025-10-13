@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
-import { LogIn, UserPlus, Briefcase } from 'lucide-react';
+import { LogIn, UserPlus } from 'lucide-react';
 
 export function AuthForm() {
   const [isSignUp, setIsSignUp] = useState(false);
@@ -40,13 +40,13 @@ export function AuthForm() {
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#f5f0e6] to-white p-4">
       <div className="max-w-md w-full bg-white rounded-2xl shadow-xl p-8">
         <div className="flex justify-center mb-6">
-          <div className="w-16 h-16 bg-gradient-to-br from-[#d6c2a3] to-[#c4a87f] rounded-xl flex items-center justify-center">
-            <Briefcase className="w-8 h-8 text-white" />
+          <div className="w-16 h-16 rounded-xl flex items-center justify-center">
+            <img src="/logo.png" alt="MerkeWin Logo" className="w-16 h-16 object-contain" />
           </div>
         </div>
 
         <h1 className="text-3xl font-bold text-center text-slate-900 mb-2">
-          Business Consultant AI
+          MerkeWin
         </h1>
         <p className="text-center text-slate-600 mb-8">
           {isSignUp ? 'Create your account to get started' : 'Sign in to your account'}

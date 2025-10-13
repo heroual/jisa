@@ -14,10 +14,11 @@ interface Project {
 }
 
 interface ProjectsListProps {
-  onProjectSelect?: (projectId: string) => void;
+  onProjectSelect: (project: Project | null) => void;
+  selectedProject: Project | null;
 }
 
-export function ProjectsList({ onProjectSelect }: ProjectsListProps) {
+export function ProjectsList({ onProjectSelect, selectedProject }: ProjectsListProps) {
   const { user } = useAuth();
   const [projects, setProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState(true);
@@ -91,6 +92,9 @@ export function ProjectsList({ onProjectSelect }: ProjectsListProps) {
 
       if (error) throw error;
       loadProjects();
+      if (selectedProject && selectedProject.id === id) {
+        onProjectSelect(null); // Deselect if the deleted project was selected
+      }
     } catch (error) {
       console.error('Error deleting project:', error);
     }
@@ -245,7 +249,9 @@ export function ProjectsList({ onProjectSelect }: ProjectsListProps) {
           {projects.map((project) => (
             <div
               key={project.id}
-              className="bg-white rounded-xl border border-slate-200 p-6 hover:border-slate-300 hover:shadow-md transition-all"
+              onClick={() => onProjectSelect(project)}
+              className={`bg-white rounded-xl border border-slate-200 p-6 hover:border-slate-300 hover:shadow-md transition-all 
+                ${selectedProject && selectedProject.id === project.id ? 'border-2 border-blue-500' : ''}`}
             >
               <div className="flex items-start justify-between mb-4">
                 <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-blue-600 to-cyan-500 flex items-center justify-center">
@@ -253,7 +259,19 @@ export function ProjectsList({ onProjectSelect }: ProjectsListProps) {
                 </div>
                 <div className="flex gap-2">
                   <button
-                    onClick={() => handleDelete(project.id)}
+                    onClick={(e) => {
+                      e.stopPropagation(); // Prevent selecting project when editing
+                      // handleEdit(project); // No edit functionality in this version
+                    }}
+                    className="p-2 text-slate-400 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
+                  >
+                    <Edit2 className="w-4 h-4" />
+                  </button>
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation(); // Prevent selecting project when deleting
+                      handleDelete(project.id);
+                    }}
                     className="p-2 text-slate-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors"
                   >
                     <Trash2 className="w-4 h-4" />

@@ -12,18 +12,24 @@ import { CompetitorAnalysis } from './components/Research/CompetitorAnalysis';
 import { LeadGeneration } from './components/Research/LeadGeneration';
 import { WebsiteAnalysis } from './components/Research/WebsiteAnalysis';
 import { LandingPage } from './components/Landing/LandingPage';
-import {
-  TrendingUp,
-  DollarSign,
-  Target,
-  FileText,
-  Bot,
-  BarChart3,
-} from 'lucide-react';
+import { MarketResearch } from './components/Modules/MarketResearch/MarketResearch';
+import { FinancialPlanning } from './components/Modules/FinancialPlanning/FinancialPlanning';
+import { MarketingStrategy } from './components/Modules/MarketingStrategy/MarketingStrategy';
+import { BusinessPlan } from './components/Modules/BusinessPlan/BusinessPlan';
+import { ReportsAnalytics } from './components/Reports/ReportsAnalytics';
+import { Bot } from 'lucide-react';
+
+interface Project {
+  id: string;
+  name: string;
+  description?: string;
+  created_at?: string;
+}
 
 function AppContent() {
   const { user, loading } = useAuth();
   const [currentView, setCurrentView] = useState('overview');
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [showAuth, setShowAuth] = useState(false);
 
   if (loading) {
@@ -42,13 +48,40 @@ function AppContent() {
   }
 
   const renderView = () => {
+    const moduleProps = { project: selectedProject };
+    const needsProject = [
+      'idea-validation',
+      'market-research',
+      'financial-planning',
+      'marketing-strategy',
+      'business-plan',
+      'reports',
+    ];
+
+    if (needsProject.includes(currentView) && !selectedProject) {
+      return (
+        <div className="p-8 text-center">
+          <h3 className="text-xl font-semibold">Please select a project</h3>
+          <p className="text-slate-500 mt-2">
+            Please select a project from the 'Projects' tab to access this module.
+          </p>
+          <button 
+            onClick={() => setCurrentView('projects')} 
+            className="mt-4 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition"
+          >
+            Go to Projects
+          </button>
+        </div>
+      );
+    }
+
     switch (currentView) {
       case 'overview':
         return <Overview onNavigate={setCurrentView} />;
       case 'projects':
-        return <ProjectsList />;
+        return <ProjectsList onProjectSelect={setSelectedProject} />;
       case 'idea-validation':
-        return <IdeaValidation />;
+        return <IdeaValidation project={selectedProject} />;
       case 'keyword-research':
         return <KeywordResearch />;
       case 'competitor-analysis':
@@ -58,56 +91,21 @@ function AppContent() {
       case 'website-analysis':
         return <WebsiteAnalysis />;
       case 'market-research':
-        return (
-          <ComingSoon
-            title="Market Research"
-            description="Get competitor insights, market trends, and positioning strategies"
-            icon={TrendingUp}
-            color="from-[#d6c2a3] to-[#c4a87f]"
-          />
-        );
+        return <MarketResearch {...moduleProps} />;
       case 'financial-planning':
-        return (
-          <ComingSoon
-            title="Financial Planning"
-            description="Create pricing strategies, revenue forecasts, and profit optimization plans"
-            icon={DollarSign}
-            color="from-[#d6c2a3] to-[#c4a87f]"
-          />
-        );
+        return <FinancialPlanning {...moduleProps} />;
       case 'marketing-strategy':
-        return (
-          <ComingSoon
-            title="Marketing Strategy"
-            description="Design digital campaigns, optimize funnels, and plan retention tactics"
-            icon={Target}
-            color="from-[#d6c2a3] to-[#c4a87f]"
-          />
-        );
+        return <MarketingStrategy {...moduleProps} />;
       case 'business-plan':
-        return (
-          <ComingSoon
-            title="Business Plan Generator"
-            description="Create comprehensive business plans and pitch decks for investors"
-            icon={FileText}
-            color="from-[#d6c2a3] to-[#c4a87f]"
-          />
-        );
+        return <BusinessPlan {...moduleProps} />;
+      case 'reports':
+        return <ReportsAnalytics {...moduleProps} />;
       case 'automation':
         return (
           <ComingSoon
             title="AI Automation Suggestions"
             description="Identify repetitive tasks and get AI tool recommendations to save time"
             icon={Bot}
-            color="from-[#d6c2a3] to-[#c4a87f]"
-          />
-        );
-      case 'reports':
-        return (
-          <ComingSoon
-            title="Reports & Analytics"
-            description="Generate detailed reports and export insights in multiple formats"
-            icon={BarChart3}
             color="from-[#d6c2a3] to-[#c4a87f]"
           />
         );
@@ -119,7 +117,11 @@ function AppContent() {
   };
 
   return (
-    <DashboardLayout currentView={currentView} onViewChange={setCurrentView}>
+    <DashboardLayout 
+      currentView={currentView} 
+      onViewChange={setCurrentView} 
+      selectedProject={selectedProject}
+    >
       {renderView()}
     </DashboardLayout>
   );

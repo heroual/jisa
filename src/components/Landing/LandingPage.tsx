@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import {
-  Sparkles,
   Search,
   Users,
   UserPlus,
@@ -15,6 +14,7 @@ import {
   Zap,
   Shield,
   Clock,
+  Sparkles,
 } from 'lucide-react';
 
 interface LandingPageProps {
@@ -111,7 +111,7 @@ export function LandingPage({ onGetStarted }: LandingPageProps) {
       name: 'Sarah Chen',
       role: 'CEO, TechVenture',
       image: 'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=200',
-      quote: 'This AI consultant transformed how we approach market research. The insights are incredibly accurate.',
+      quote: 'MarkeWin transformed how we approach market research. The insights are incredibly accurate.',
       rating: 5,
     },
     {
@@ -125,7 +125,7 @@ export function LandingPage({ onGetStarted }: LandingPageProps) {
       name: 'Aisha Hassan',
       role: 'Startup Founder',
       image: 'https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=200',
-      quote: 'As a solo founder, having an AI business consultant has been game-changing for my growth strategy.',
+      quote: 'As a solo founder, MarkeWin has been game-changing for my growth strategy.',
       rating: 5,
     },
   ];
@@ -142,10 +142,10 @@ export function LandingPage({ onGetStarted }: LandingPageProps) {
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <div className="w-10 h-10 bg-gradient-to-br from-[#d6c2a3] to-[#c4a87f] rounded-xl flex items-center justify-center">
-                <Sparkles className="w-6 h-6 text-white" />
+              <div className="w-10 h-10 rounded-xl flex items-center justify-center">
+                <img src="/logo.png" alt="MarkeWin Logo" className="w-10 h-10 object-contain" />
               </div>
-              <span className="text-xl font-bold text-slate-900">Jisa Consultant</span>
+              <span className="text-xl font-bold text-slate-900">MarkeWin</span>
             </div>
             <div className="hidden md:flex items-center gap-8">
               <a href="#features" className="text-slate-700 hover:text-[#c4a87f] transition-colors">
@@ -189,7 +189,7 @@ export function LandingPage({ onGetStarted }: LandingPageProps) {
               </h1>
 
               <p className="text-lg text-slate-600 leading-relaxed max-w-xl">
-                Your personal AI consultant for smart insights and growth. Make data-driven decisions with confidence.
+                Your personal MarkeWin AI for smart insights and growth. Make data-driven decisions with confidence.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4">
@@ -228,6 +228,19 @@ export function LandingPage({ onGetStarted }: LandingPageProps) {
 
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-br from-[#d6c2a3]/20 to-transparent rounded-3xl blur-2xl" />
+              
+              {/* AI Robot Image */}
+              <div className="relative mb-6 flex justify-center">
+                <div className="w-64 h-64 relative">
+                  <img 
+                    src="/robot.png" 
+                    alt="AI Robot Assistant" 
+                    className="w-full h-full object-contain filter drop-shadow-2xl animate-pulse"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-transparent via-transparent to-[#d6c2a3]/10 rounded-full"></div>
+                </div>
+              </div>
+              
               <div className="relative bg-white rounded-3xl shadow-2xl p-8 border border-[#d6c2a3]/10">
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">
@@ -271,7 +284,7 @@ export function LandingPage({ onGetStarted }: LandingPageProps) {
         <div className="max-w-7xl mx-auto text-center">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#f5f0e6] rounded-full mb-6">
             <Sparkles className="w-4 h-4 text-[#c4a87f]" />
-            <span className="text-sm text-slate-700">About Jisa Consultant</span>
+            <span className="text-sm text-slate-700">About MarkeWin</span>
           </div>
 
           <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
@@ -279,7 +292,7 @@ export function LandingPage({ onGetStarted }: LandingPageProps) {
           </h2>
 
           <p className="text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed mb-12">
-            Jisa Consultant combines cutting-edge artificial intelligence with elegant design to help entrepreneurs,
+            MarkeWin combines cutting-edge artificial intelligence with elegant design to help entrepreneurs,
             startups, and SMEs make smarter decisions. From market research to lead generation, we provide
             actionable insights that drive real growth.
           </p>
@@ -448,7 +461,7 @@ export function LandingPage({ onGetStarted }: LandingPageProps) {
             </h2>
 
             <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-              Join thousands of successful entrepreneurs using Jisa Consultant
+              Join thousands of successful entrepreneurs using MarkeWin
             </p>
           </div>
 
@@ -527,7 +540,7 @@ export function LandingPage({ onGetStarted }: LandingPageProps) {
                 <div className="w-10 h-10 bg-gradient-to-br from-[#d6c2a3] to-[#c4a87f] rounded-xl flex items-center justify-center">
                   <Sparkles className="w-6 h-6 text-white" />
                 </div>
-                <span className="text-xl font-bold text-slate-900">Jisa Consultant</span>
+                <span className="text-xl font-bold text-slate-900">MarkeWin</span>
               </div>
               <p className="text-slate-600 max-w-sm">
                 Empowering businesses with intelligent AI insights for smarter decisions and sustainable growth.
@@ -555,7 +568,7 @@ export function LandingPage({ onGetStarted }: LandingPageProps) {
 
           <div className="pt-8 border-t border-[#d6c2a3]/20 flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-slate-600 text-sm">
-              © 2025 Jisa Consultant. All rights reserved.
+              © 2025 MarkeWin. All rights reserved.
             </p>
             <div className="flex gap-4">
               <a href="#" className="w-10 h-10 rounded-full bg-[#f5f0e6] flex items-center justify-center text-[#c4a87f] hover:bg-[#d6c2a3] hover:text-white transition-all">

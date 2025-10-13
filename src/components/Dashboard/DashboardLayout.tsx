@@ -13,22 +13,30 @@ import {
   LogOut,
   Menu,
   X,
-  Briefcase,
   Search,
   Users,
   UserPlus,
   Globe,
+  FolderOpen,
 } from 'lucide-react';
 
+interface Project {
+  id: string;
+  name: string;
+  description?: string;
+  created_at?: string;
+}
+
 interface DashboardLayoutProps {
-  children: ReactNode;
+  children: React.ReactNode;
   currentView: string;
   onViewChange: (view: string) => void;
+  selectedProject: Project | null;
 }
 
 const menuItems = [
   { id: 'overview', label: 'Overview', icon: LayoutDashboard },
-  { id: 'projects', label: 'My Projects', icon: Briefcase },
+  { id: 'projects', label: 'My Projects', icon: FolderOpen },
   { id: 'idea-validation', label: 'Idea Validation', icon: Lightbulb },
   { id: 'keyword-research', label: 'Keyword Research', icon: Search },
   { id: 'competitor-analysis', label: 'Competitor Analysis', icon: Users },
@@ -63,11 +71,11 @@ export function DashboardLayout({ children, currentView, onViewChange }: Dashboa
               {sidebarOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
             <div className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-gradient-to-br from-[#d6c2a3] to-[#c4a87f] rounded-lg flex items-center justify-center">
-                <Briefcase className="w-5 h-5 text-white" />
+              <div className="w-8 h-8 rounded-lg flex items-center justify-center">
+                <img src="/logo.png" alt="MarkeWin Logo" className="w-8 h-8 object-contain" />
               </div>
               <h1 className="text-lg font-bold text-slate-900 hidden sm:block">
-                Business Consultant AI
+                MarkeWin
               </h1>
             </div>
           </div>

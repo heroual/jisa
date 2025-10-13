@@ -118,7 +118,7 @@ export function ChatInterface() {
   return (
     <div className="space-y-6 h-[calc(100vh-12rem)]">
       <div>
-        <h2 className="text-3xl font-bold text-slate-900">Q&A Business Consultant</h2>
+        <h2 className="text-3xl font-bold text-slate-900">Q&A MerkeWin</h2>
         <p className="text-slate-600 mt-1">Ask me anything about your business</p>
       </div>
 
